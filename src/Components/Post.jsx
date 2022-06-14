@@ -2,25 +2,23 @@ import React from 'react'
 
 function Post(props) {
 
-    //const id = props.id
+    //onst id = props.id
 
-    //console.log(setPosts)
+    
 
     const deletePost = async (id) => {
         console.log("ai ai")
         
-        // const resp = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-        //     method: "DELETE",
-        // });
+        const resp = await fetch('https://tapio-exercise-api.herokuapp.com/api/deletepost', {
+            id: props._id
+        })
 
         // props.setPosts(prevposts => {
         //     // const newposts = prevposts.filter(p => p._id !== post._id);
         //     // return newposts;
         // });
     
-        // // const data = await resp.json();
-        // //console.log(data)
-        
+               
       }
     
 // deletePost()
@@ -42,13 +40,9 @@ function Post(props) {
     </div>
   </div>
 
- 
-  
+   
   </div>
   
-
-
-
     
   )
 }
