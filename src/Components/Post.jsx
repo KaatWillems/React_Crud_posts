@@ -1,27 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 function Post(props) {
 
-    //onst id = props.id
-
-    
-
-    const deletePost = async (id) => {
-        console.log("ai ai")
-        
-        const resp = await fetch('https://tapio-exercise-api.herokuapp.com/api/deletepost', {
-            id: props._id
+        const deletePost = async () => {
+        //console.log("delete button clicked")
+        //console.log(id)
+        const res = await fetch('https://tapio-exercise-api.herokuapp.com/api/deletepost', {
+            // id: props._id,
+            id: props._id,
+            method: "POST",
         })
-
-        // props.setPosts(prevposts => {
-        //     // const newposts = prevposts.filter(p => p._id !== post._id);
-        //     // return newposts;
-        // });
-    
+        if (res) {
+          
+         props.setPosts(prevposts => {
+            //console.log(prevposts)
+                  
+            const newposts = prevposts.filter((p) => p._id !== props._id);
+                     
+            return newposts;
+         });  
+        }  
                
       }
+
     
-// deletePost()
+
   return (
   
 <div className="cards">
@@ -34,7 +37,7 @@ function Post(props) {
         <p className="card__text">{props.content}.</p>
         <div className='btn-wrapper'>
             <button className="btn">Edit</button>
-            <button className="btn" onClick={deletePost}>Delete</button>
+            <button className="btn" onClick={() => deletePost(props._id)} >Delete</button>
         </div>
       </div>
     </div>

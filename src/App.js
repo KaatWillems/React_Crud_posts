@@ -9,13 +9,13 @@ function App() {
     const resp = await fetch('https://tapio-exercise-api.herokuapp.com/api/posts')
 
     const data = await resp.json();
-    //console.log(data)
+    console.log(data)
     setPosts(data)
   }
 
   useEffect(() => {
     readPosts()
-  }, [posts])
+  }, [])
 
 
 

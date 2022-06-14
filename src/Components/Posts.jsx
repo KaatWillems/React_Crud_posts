@@ -4,8 +4,8 @@ import Post from './Post'
 function Posts(props) {
   return (
     <div>
-      {console.log(props)}
-    {props.posts.map(post => <Post key={post.id} {...post} /> ) }    
+      
+    {props.posts.map(onePost => <Post key={onePost._id} {...onePost} setPosts={props.setPosts} /> ) }    
 
 
     </div>
