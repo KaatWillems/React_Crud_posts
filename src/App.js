@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import Newpost from './Components/Newpost';
 import Posts from './Components/Posts';
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
     const resp = await fetch('https://tapio-exercise-api.herokuapp.com/api/posts')
 
     const data = await resp.json();
-    console.log(data)
+    //console.log(data)
     setPosts(data)
   }
 
@@ -22,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-
+      <Newpost readPosts={readPosts} />
       <Posts posts={posts} setPosts={setPosts} />
       
     </div>

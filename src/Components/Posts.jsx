@@ -5,7 +5,8 @@ function Posts(props) {
   return (
     <div>
       
-    {props.posts.map(onePost => <Post key={onePost._id} {...onePost} setPosts={props.setPosts} /> ) }    
+    { props.posts === 0 ? "WAITING" 
+    : props.posts.map(onePost => <Post key={onePost._id} {...onePost} setPosts={props.setPosts} /> ) }    
 
 
     </div>
